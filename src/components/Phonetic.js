@@ -1,16 +1,13 @@
 export default function Phonetic({ phonetic }) {
   return (
-    <div className="Phonetic mt-3">
-      <a
-        href={phonetic.audio}
-        target="_blank"
-        rel="noreferrer"
-        className="btn btn-secondary me-4"
-      >
-        Listen
-      </a>
+    <div className="Phonetic mt-3 d-sm-flex">
+      <div>
+        <audio controls className="">
+          <source src={phonetic.audio} type="audio/mp3" />
+        </audio>
+      </div>
 
-      <span className="text">{phonetic.text}</span>
+      <div className="m-3">{phonetic.text}</div>
     </div>
   );
 }
