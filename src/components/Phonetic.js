@@ -2,7 +2,7 @@ export default function Phonetic({ phonetic }) {
   return (
     <div className="Phonetic mt-3 d-sm-flex">
       <div>
-        <audio controls className="">
+        <audio controls key={phonetic.audio}>
           <source src={phonetic.audio} type="audio/mp3" />
         </audio>
       </div>

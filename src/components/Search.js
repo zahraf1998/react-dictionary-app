@@ -10,7 +10,6 @@ export default function Search({ setWord }) {
   function handleSubmit(e) {
     e.preventDefault();
     setWord(value);
-    alert(value);
   }
   return (
     <div className="Search mt-5">

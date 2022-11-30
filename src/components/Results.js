@@ -2,7 +2,6 @@ import Phonetic from "./Phonetic";
 import Meaning from "./Meaning";
 
 export default function Results({ data }) {
-  console.log(data);
   return (
     <div className="Results">
       <section>
