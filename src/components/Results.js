@@ -16,9 +16,13 @@ export default function Results({ data }) {
           );
         })}
       </section>
-      <section>
-        <Meaning />
-      </section>
+      {data.meanings.map(function (meaning, i) {
+        return (
+          <section key={i}>
+            <Meaning meaning={meaning} />
+          </section>
+        );
+      })}
     </div>
   );
 }
