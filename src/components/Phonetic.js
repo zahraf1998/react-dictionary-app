@@ -1,8 +1,8 @@
-export default function Phonetic() {
+export default function Phonetic({ phonetic }) {
   return (
     <div className="Phonetic mt-3">
       <a
-        href="/"
+        href={phonetic.audio}
         target="_blank"
         rel="noreferrer"
         className="btn btn-secondary me-4"
@@ -10,7 +10,7 @@ export default function Phonetic() {
         Listen
       </a>
 
-      <span className="text">Phonetic</span>
+      <span className="text">{phonetic.text}</span>
     </div>
   );
 }

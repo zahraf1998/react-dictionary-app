@@ -6,10 +6,12 @@ import "./Dictionary.css";
 
 export default function Dictionary() {
   const [word, setWord] = useState("Hello");
+  const [data, setData] = useState("");
 
   function handleResponse(response) {
-    console.log(response);
+    setData(response.data[0]);
   }
+
   useEffect(() => {
     const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     axios.get(apiUrl).then(handleResponse);
@@ -24,7 +26,7 @@ export default function Dictionary() {
         <main>
           <div className="w-100">
             <Search setWord={setWord} />
-            <Results />
+            {data ? <Results data={data} /> : ""}
           </div>
         </main>
         <footer className="text-center mt-5">
