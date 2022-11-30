@@ -1,4 +1,5 @@
 import Phonetic from "./Phonetic";
+import Meaning from "./Meaning";
 import "./Results.css";
 
 export default function Results() {
@@ -9,8 +10,7 @@ export default function Results() {
         <Phonetic />
       </section>
       <section>
-        <h3>Noun</h3>
-        <p>meaning</p>
+        <Meaning />
       </section>
     </div>
   );
