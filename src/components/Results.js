@@ -1,6 +1,5 @@
 import Phonetic from "./Phonetic";
 import Meaning from "./Meaning";
-import "./Results.css";
 
 export default function Results({ data }) {
   console.log(data);

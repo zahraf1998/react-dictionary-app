@@ -4,12 +4,13 @@ export default function Search({ setWord }) {
   const [value, setValue] = useState("");
 
   function handleChange(e) {
-    setValue(e.target.value);
+    setValue(e.target.value.trim().toLowerCase());
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     setWord(value);
+    alert(value);
   }
   return (
     <div className="Search mt-5">

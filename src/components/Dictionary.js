@@ -1,20 +1,30 @@
 import { useState, useEffect } from "react";
 import Search from "./Search";
 import Results from "./Results";
+import Photos from "./Photos";
 import axios from "axios";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  const [word, setWord] = useState("Hello");
+  const [word, setWord] = useState("hello");
   const [data, setData] = useState("");
+  const [photos, setPhotos] = useState("");
 
-  function handleResponse(response) {
+  function handleDictionaryResponse(response) {
     setData(response.data[0]);
   }
 
+  function handlePhotoResponse(response) {
+    setPhotos(response.data.results);
+  }
+
   useEffect(() => {
-    const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-    axios.get(apiUrl).then(handleResponse);
+    const dictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+    const photoUrlKey = "n1zEL9Tsb3NjDP0LPWtXzwIofF_4_5rIS6NcpsJRBvI";
+    const photoUrl = `https://api.unsplash.com/search/photos?page=1?&query=${word}&client_id=${photoUrlKey}`;
+
+    axios.get(dictionaryUrl).then(handleDictionaryResponse);
+    axios.get(photoUrl).then(handlePhotoResponse);
   }, [word]);
 
   return (
@@ -27,6 +37,7 @@ export default function Dictionary() {
           <div className="w-100">
             <Search setWord={setWord} />
             {data ? <Results data={data} /> : ""}
+            {photos ? <Photos photos={photos} /> : ""}
           </div>
         </main>
         <footer className="text-center mt-5">
