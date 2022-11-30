@@ -8,7 +8,7 @@ export default function Dictionary() {
         <header>
           <h1 className="text-center">Dictionary</h1>
         </header>
-        <main>
+        <main className="d-flex justify-content-center">
           <Search />
           <Results />
         </main>
