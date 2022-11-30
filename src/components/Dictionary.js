@@ -1,8 +1,20 @@
+import { useState, useEffect } from "react";
 import Search from "./Search";
 import Results from "./Results";
+import axios from "axios";
 import "./Dictionary.css";
 
 export default function Dictionary() {
+  const [word, setWord] = useState("Hello");
+
+  function handleResponse(response) {
+    console.log(response);
+  }
+  useEffect(() => {
+    const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+    axios.get(apiUrl).then(handleResponse);
+  }, [word]);
+
   return (
     <div className="Dictionary">
       <div className="container">
@@ -11,7 +23,7 @@ export default function Dictionary() {
         </header>
         <main>
           <div className="w-100">
-            <Search />
+            <Search setWord={setWord} />
             <Results />
           </div>
         </main>

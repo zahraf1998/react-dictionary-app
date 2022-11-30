@@ -1,11 +1,25 @@
-export default function Search() {
+import { useState } from "react";
+
+export default function Search({ setWord }) {
+  const [value, setValue] = useState("");
+
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setWord(value);
+  }
   return (
     <div className="Search mt-5">
-      <form className="d-flex">
+      <form className="d-flex" onSubmit={handleSubmit}>
         <input
           type="search"
           className="form-control"
           placeholder="Search ..."
+          autoComplete="off"
+          onChange={handleChange}
         ></input>
         <input
           type="submit"
