@@ -1,5 +1,6 @@
 import Search from "./Search";
 import Results from "./Results";
+import "./Dictionary.css";
 
 export default function Dictionary() {
   return (
@@ -8,11 +9,13 @@ export default function Dictionary() {
         <header>
           <h1 className="text-center">Dictionary</h1>
         </header>
-        <main className="d-flex justify-content-center">
-          <Search />
-          <Results />
+        <main>
+          <div className="w-100">
+            <Search />
+            <Results />
+          </div>
         </main>
-        <footer className="text-center">
+        <footer className="text-center mt-5">
           <small className="text-muted">
             Coded by Zahra F. Source code on{" "}
             <a
