@@ -21,11 +21,9 @@ export default function Search({ setWord }) {
           autoComplete="off"
           onChange={handleChange}
         ></input>
-        <input
-          type="submit"
-          value="Search"
-          className="btn btn-light ms-1"
-        ></input>
+        <button type="submit" className="btn btn-light ms-1">
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
       </form>
     </div>
   );
