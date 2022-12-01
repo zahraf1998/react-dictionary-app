@@ -20,7 +20,7 @@ export default function Dictionary() {
 
   useEffect(() => {
     const dictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-    const photoUrlKey = "n1zEL9Tsb3NjDP0LPWtXzwIofF_4_5rIS6NcpsJRBvI";
+    const photoUrlKey = "Fpi7ZoEo3poUcNwyaxzigN9HfldJZMftseJhXkyMAW8";
     const photoUrl = `https://api.unsplash.com/search/photos?page=1?&query=${word}&client_id=${photoUrlKey}`;
 
     axios.get(dictionaryUrl).then(handleDictionaryResponse);
